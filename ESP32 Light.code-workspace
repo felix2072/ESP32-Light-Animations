@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"new": "cpp",
+			"cmath": "cpp",
+			"*.tcc": "cpp",
+			"array": "cpp",
+			"deque": "cpp",
+			"string": "cpp",
+			"unordered_map": "cpp",
+			"unordered_set": "cpp",
+			"vector": "cpp",
+			"string_view": "cpp",
+			"initializer_list": "cpp",
+			"random": "cpp",
+			"fstream": "cpp",
+			"istream": "cpp",
+			"ostream": "cpp",
+			"memory": "cpp",
+			"optional": "cpp",
+			"functional": "cpp",
+			"sstream": "cpp",
+			"streambuf": "cpp"
+		}
+	}
+}
