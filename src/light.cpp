@@ -135,33 +135,49 @@ void Light::updateNoiseColor(int mode) {
     pixels.show();
 }
 
-void Light::serverAnimationUpdate() {
-    
-    for (int r = 0; r < LEDROWS; r++) {
-        for (int c = 0; c < LEDCOLS; c++) {
-            if(counter % 7 < 3){
-                if(r % 2 == counter % 2 == 0){
-                    if(c % 4 < 1){
-                        pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(255, 255, 0));
+void Light::serverAnimationUpdate(int mode) {
+    float time = millis() *.1;
+    if (mode == 0)
+    {
+        for (int r = 0; r < LEDROWS; r++) {
+            for (int c = 0; c < LEDCOLS; c++) {
+                float noiseValue = inoise8(r*80,c*40, time);
+
+                if(counter % 7 < 3 && noiseValue < 100 + (counter*0.5)){
+                    if(r % 2 == counter % 2 == 0){
+                        if(c % 4 < 1){
+                            pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(255, 255, 0));
+                        }else{
+                            pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0,0,0));
+                        }
                     }else{
-                        pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0,0,0));
-                    }
-                }else{
-                    if(c % 5 < counter % 5){
-                        pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0, 255, 0));
-                    }else{
-                        pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0,0,0));
+                        if(c % 5 < counter % 5){
+                            pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0, 255, 0));
+                        }else{
+                            pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0,0,0));
+                        }
                     }
                 }
             }
         }
     }
+    
+    if(mode == 1){
+        for(float i = 0; i < 3; i++){
+            if(counter + i * 40 < MAXLED){
+                pixels.setPixelColor(LED_1D[counter + i * 40], pixels.Color(255, 0, 0));
+            }else{
+                pixels.setPixelColor(LED_1D[counter], pixels.Color(0,0,0));
+            }
+        }
+    }
+
     pixels.show();
     counter++;
     if(counter >= MAXLED) {
         counter = 0;
     }
-    delay(100); // Kurze Pause
+    delay(10); // Kurze Pause
 }
 
 void Light::onePixelTest() {

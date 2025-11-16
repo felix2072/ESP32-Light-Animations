@@ -46,7 +46,7 @@ public:
   uint32_t ColorHSVWheel(byte pos);
   void updateRainbowColor();
   void updateNoiseColor(int mode);
-  void serverAnimationUpdate();
+  void serverAnimationUpdate(int mode);
   void onePixelTest();
 };
 

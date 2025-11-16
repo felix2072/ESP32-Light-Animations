@@ -38,10 +38,10 @@ void loop()
       light.updateNoiseColor(1);
       break;
     case '4':
-      light.serverAnimationUpdate();
+      light.serverAnimationUpdate(0);
       break;
     case '5':
-      light.onePixelTest();
+      light.serverAnimationUpdate(1);
       break;
     case '0':
       light.setLEDColor(0, 0, 0);
