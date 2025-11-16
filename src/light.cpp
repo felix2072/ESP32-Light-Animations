@@ -5,23 +5,65 @@ Light::Light()
 }
 
 void Light::initNeoPixel()
-{
+{   
+    /* for(int r = 0; r < LEDROWS; r++){
+        if(r % 2 == 0){
+            for(int c = 0; c < LEDCOLS; c++){
+                int ledIndex = r + LEDROWS * c;
+                int ledID = c + LEDCOLS * r;
+                ledIDs[ledID] = ledIndex;
+                Serial.println("LED ID[" + String(ledID) + "] = " + String(ledIndex));
+            }
+        }else{
+            for(int c = LEDCOLS -1; c >=0; c--){
+                int ledIndex = r + LEDROWS * c;
+                int ledID = c + LEDCOLS * r;
+                ledIDs[ledID] = ledIndex;
+                Serial.println("LED ID[" + String(ledID) + "] = " + String(ledIndex));
+            }
+
+        }
+    } */
+   
+    // Mapping berechnen
+    int index_1d = 0;
+    for (int r = 0; r < LEDROWS; r++) {
+        for (int c = 0; c < LEDCOLS; c++) {
+
+            int index;
+
+            if (r % 2 == 0) {
+                // Gerade Reihe → normal
+                index = r * LEDCOLS + c;
+            } else {
+                // Ungerade Reihe → reverse
+                index = r * LEDCOLS + (LEDCOLS - 1 - c);
+            }
+
+            LED_MATRIX[r][c] = index;
+            LED_1D[index_1d] = index;
+            Serial.println("LED ID[" + String(index_1d) + "] = " + String(index) + " (Row: " + String(r) + ", Col: " + String(c) + ")");
+            index_1d++;
+        }
+    }
+
     pixels.begin();
     pixels.setBrightness(255);
 }
 
-void Light::setLEDColor(int r, int g, int b){
-    if(pixels.getPixelColor(0) != pixels.Color(r, g, b)){
-        for (int i = 0; i < MAXLED; i++)
-        {
-            pixels.setPixelColor(i, pixels.Color(r, g, b));
+void Light::setLEDColor(int red, int green, int blue){
+    if(pixels.getPixelColor(0) != pixels.Color(red, green, blue)){
+        for (int r = 0; r < LEDROWS; r++) {
+            for (int c = 0; c < LEDCOLS; c++) {
+                pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(red, green, blue));
+            }
         }
         pixels.show();
         
         if(SERIAL_DEBUG){
-            Serial.print("setLEDRingColor: " + String(r));
-            Serial.print(", " + String(g));
-            Serial.println(", " + String(b));
+            Serial.print("setLEDRingColor: " + String(red));
+            Serial.print(", " + String(green));
+            Serial.println(", " + String(blue));
         }
     }
 }
@@ -37,6 +79,13 @@ uint32_t Light::colorWheel(byte pos) {
     }
     pos -= 170;
     return pixels.Color(pos * 3, 255 - pos * 3, 0);
+}
+
+uint32_t Light::ColorHSVWheel(byte pos) {
+    if(pos < 85) {
+        return pixels.ColorHSV(pos, 0, 0);
+    }
+    return pixels.ColorHSV(0, 0, 0);
 }
 
 void Light::updateRainbowColor() {
@@ -55,26 +104,78 @@ void Light::updateRainbowColor() {
     if(colorIndex >= 255) colorIndex = 0;
 }
 
-void Light::updateNoiseColor() {
+void Light::updateNoiseColor(int mode) {
     
-    float time = millis(); // Zeit in Sekunden
-    for (int i = 0; i < MAXLED; i++) {
-        // Perlin-Rauschwert für die LED-Position und die Zeit abrufen
-        float noiseValue = inoise8(i * 60, time);
+    float time = millis() *.1; // Zeit in Sekunden
+    for (int r = 0; r < LEDROWS; r++) {
+        for (int c = 0; c < LEDCOLS; c++) {
+            // P<erlin-Rauschwert für die LED-Position und die Zeit abrufen
+            float noiseValue = inoise8(r*80,c*40, time);
 
-        // Rauschwert in eine Farbe umwandeln (z.B. Blau bis Rot)
-        byte r = 0;
-        byte g = noiseValue;
-        byte b = 255 - noiseValue;
-        if(noiseValue > 128) {
-            pixels.setPixelColor(i, pixels.Color(r, g, b));
-        }else{
-            pixels.setPixelColor(i, pixels.Color(0, 0, 0));
+            uint32_t col = colorWheel(noiseValue);
+
+            // Farbe extrahieren (da deine Funktion r,g,b erwartet)
+            byte red = (col >> 16) & 0xFF;
+            byte green = (col >>  8) & 0xFF;
+            byte blue =  col        & 0xFF;
+
+            //Serial.println("Noise Value [" + String(r) + "][" + String(c) + "] = col "+ String(col) + "/" + String(red) + "," + String(green) + "," + String(blue));
+            if(mode == 0){
+                if(pixels.gamma8(green)>10 && pixels.gamma8(green)<40){
+                    pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0, 127, 0));
+                }else{
+                    pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0,0,0));
+                }
+            }
+            if(mode == 1){
+                pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(pixels.gamma8(red), pixels.gamma8(green*0.7), 0));
+            }
         }
     }
     pixels.show();
 }
 
 void Light::serverAnimationUpdate() {
-    // Hier kannst du den Code für die Server-Animation einfügen
+    
+    for (int r = 0; r < LEDROWS; r++) {
+        for (int c = 0; c < LEDCOLS; c++) {
+            if(counter % 7 < 3){
+                if(r % 2 == counter % 2 == 0){
+                    if(c % 4 < 1){
+                        pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(255, 255, 0));
+                    }else{
+                        pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0,0,0));
+                    }
+                }else{
+                    if(c % 5 < counter % 5){
+                        pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0, 255, 0));
+                    }else{
+                        pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0,0,0));
+                    }
+                }
+            }
+        }
+    }
+    pixels.show();
+    counter++;
+    if(counter >= MAXLED) {
+        counter = 0;
+    }
+    delay(100); // Kurze Pause
+}
+
+void Light::onePixelTest() {
+    for (int r = 0; r < LEDROWS; r++) {
+        for (int c = 0; c < LEDCOLS; c++) {
+            pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0, 0, 0));
+        }
+    }
+    pixels.setPixelColor(LED_1D[counter], pixels.Color(255, 0, 0)); // Eine LED rot einschalten
+    pixels.show();
+
+    counter++;
+    if(counter >= MAXLED) {
+        counter = 0;
+    }
+    delay(100); // Kurze Pause
 }

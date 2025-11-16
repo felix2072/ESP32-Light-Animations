@@ -32,7 +32,16 @@ void loop()
       light.updateRainbowColor();
       break;
     case '2':
-      light.updateNoiseColor();
+      light.updateNoiseColor(0);
+      break;
+    case '3':
+      light.updateNoiseColor(1);
+      break;
+    case '4':
+      light.serverAnimationUpdate();
+      break;
+    case '5':
+      light.onePixelTest();
       break;
     case '0':
       light.setLEDColor(0, 0, 0);
