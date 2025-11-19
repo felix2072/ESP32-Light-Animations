@@ -111,6 +111,7 @@ void Light::updateNoiseColor(int mode) {
         for (int c = 0; c < LEDCOLS; c++) {
             // P<erlin-Rauschwert für die LED-Position und die Zeit abrufen
             float noiseValue = inoise8(r*80,c*40, time);
+            
 
             uint32_t col = colorWheel(noiseValue);
 
@@ -119,15 +120,33 @@ void Light::updateNoiseColor(int mode) {
             byte green = (col >>  8) & 0xFF;
             byte blue =  col        & 0xFF;
 
+
             //Serial.println("Noise Value [" + String(r) + "][" + String(c) + "] = col "+ String(col) + "/" + String(red) + "," + String(green) + "," + String(blue));
             if(mode == 0){
+                
                 if(pixels.gamma8(green)>10 && pixels.gamma8(green)<40){
-                    pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0, 127, 0));
+                    pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(40, 0, 40));
                 }else{
                     pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0,0,0));
                 }
             }
             if(mode == 1){
+                float noiseValue2 = inoise8(r*60,c*30, time+5000);
+                uint32_t col2 = colorWheel(noiseValue2);
+                byte red2 = (col2 >> 16) & 0xFF;
+                byte green2 = (col2 >>  8) & 0xFF;
+                byte blue2=  col2        & 0xFF;
+                
+                pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0,0,0));
+                if(pixels.gamma8(green)>10 && pixels.gamma8(green)<40){
+                    pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(0, 150, 0));
+                }
+                if (pixels.gamma8(red2)>2 && pixels.gamma8(red2)<50)
+                {
+                    pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(150, 100, 0));
+                }
+            }
+            if(mode == 2){
                 pixels.setPixelColor(LED_MATRIX[r][c], pixels.Color(pixels.gamma8(red), pixels.gamma8(green*0.7), 0));
             }
         }
@@ -164,11 +183,13 @@ void Light::serverAnimationUpdate(int mode) {
     
     if(mode == 1){
         for(float i = 0; i < 3; i++){
-            if(counter + i * 40 < MAXLED){
-                pixels.setPixelColor(LED_1D[counter + i * 40], pixels.Color(255, 0, 0));
-            }else{
-                pixels.setPixelColor(LED_1D[counter], pixels.Color(0,0,0));
+            float noiseValue = inoise8(i*400, time*10);
+            if(counter + i * 14 < MAXLED){
+                pixels.setPixelColor(LED_1D[counter + i * 18], pixels.Color(noiseValue, noiseValue, noiseValue));
+                pixels.setPixelColor(LED_1D[counter + i * 16], pixels.Color(noiseValue, noiseValue, 0));
+                pixels.setPixelColor(LED_1D[counter + i * 14], pixels.Color(noiseValue, 0, 0));
             }
+
         }
     }
 

@@ -6,7 +6,6 @@
 #include <Adafruit_NeoPixel.h>
 #include <FastLED.h>
 #include <array>
-#include <Timer.h>
 // MIDI
 
 class Light
@@ -29,10 +28,6 @@ private:
   //1D array for LED ids
   std::array<int, MAXLED> LED_1D;
   std::array<std::array<int, LEDCOLS>, LEDROWS> LED_MATRIX{};
-
-  // TIMER
-  Timer neoPixelTimer;
-  int neoPixelInterval = 100;
 
   uint16_t colorIndex = 0;
   
