@@ -787,7 +787,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "VL.Core/2025.7.0": {
+      "VL.Core/2025.7.0-sbb-0011-gbdeb3a62a5": {
         "type": "package",
         "dependencies": {
           "CommunityToolkit.HighPerformance": "8.2.2",
@@ -3015,23 +3015,23 @@
         "version.txt"
       ]
     },
-    "VL.Core/2025.7.0": {
-      "sha512": "92odMrAFMy9r3u30xr9cBzMlwOyIy6LEfeHy1G8KoQZy5mneVoF4SFK2rhtDDEC/kjQ5bbvI1Uh4WpkMTtl2Sg==",
+    "VL.Core/2025.7.0-sbb-0011-gbdeb3a62a5": {
+      "sha512": "z1HkBDWzzqU3h6zB0ImdOy+3VLwtFDAFdlcgoyrGSkbZbFcUFsdfZoK3PUq9EoPBnfJJbWDaFQ0chtQlxMPp9Q==",
       "type": "package",
-      "path": "vl.core/2025.7.0",
+      "path": "vl.core/2025.7.0-sbb-0011-gbdeb3a62a5",
       "files": [
         ".nupkg.metadata",
         "lib/net8.0/VL.Core.dll",
         "lib/net8.0/VL.Core.xml",
         "nugeticon.png",
-        "vl.core.2025.7.0.nupkg.sha512",
+        "vl.core.2025.7.0-sbb-0011-gbdeb3a62a5.nupkg.sha512",
         "vl.core.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "VL.Core >= 2025.7.0"
+      "VL.Core >= 2025.7.0-sbb-0011-gbdeb3a62a5"
     ]
   },
   "packageFolders": {
@@ -3087,7 +3087,7 @@
         "dependencies": {
           "VL.Core": {
             "target": "Package",
-            "version": "[2025.7.0, )"
+            "version": "[2025.7.0-sbb-0011-gbdeb3a62a5, )"
           }
         },
         "imports": [

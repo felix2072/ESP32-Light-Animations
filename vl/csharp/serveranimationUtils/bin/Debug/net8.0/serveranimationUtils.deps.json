@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "serveranimationUtils/1.0.0": {
         "dependencies": {
-          "VL.Core": "2025.7.0"
+          "VL.Core": "2025.7.0-sbb-0011-gbdeb3a62a5"
         },
         "runtime": {
           "serveranimationUtils.dll": {}
@@ -416,7 +416,7 @@
         }
       },
       "System.ValueTuple/4.5.0": {},
-      "VL.Core/2025.7.0": {
+      "VL.Core/2025.7.0-sbb-0011-gbdeb3a62a5": {
         "dependencies": {
           "CommunityToolkit.HighPerformance": "8.2.2",
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
@@ -434,7 +434,7 @@
         "runtime": {
           "lib/net8.0/VL.Core.dll": {
             "assemblyVersion": "2025.7.0.0",
-            "fileVersion": "2025.7.0.1"
+            "fileVersion": "2025.7.0.0"
           }
         }
       }
@@ -789,12 +789,12 @@
       "path": "system.valuetuple/4.5.0",
       "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
     },
-    "VL.Core/2025.7.0": {
+    "VL.Core/2025.7.0-sbb-0011-gbdeb3a62a5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-92odMrAFMy9r3u30xr9cBzMlwOyIy6LEfeHy1G8KoQZy5mneVoF4SFK2rhtDDEC/kjQ5bbvI1Uh4WpkMTtl2Sg==",
-      "path": "vl.core/2025.7.0",
-      "hashPath": "vl.core.2025.7.0.nupkg.sha512"
+      "sha512": "sha512-z1HkBDWzzqU3h6zB0ImdOy+3VLwtFDAFdlcgoyrGSkbZbFcUFsdfZoK3PUq9EoPBnfJJbWDaFQ0chtQlxMPp9Q==",
+      "path": "vl.core/2025.7.0-sbb-0011-gbdeb3a62a5",
+      "hashPath": "vl.core.2025.7.0-sbb-0011-gbdeb3a62a5.nupkg.sha512"
     }
   }
 }

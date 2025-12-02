@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZdgwFfxVcIs=",
+  "dgSpecHash": "LysCSFyA0lc=",
   "success": true,
   "projectFilePath": "D:\\work\\ESP32-Light-Animations\\vl\\csharp\\serveranimationUtils\\serveranimationUtils.csproj",
   "expectedPackageFiles": [
@@ -53,7 +53,7 @@
     "C:\\Users\\FelixWorseck\\.nuget\\packages\\system.threading.overlapped\\4.3.0\\system.threading.overlapped.4.3.0.nupkg.sha512",
     "C:\\Users\\FelixWorseck\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\FelixWorseck\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
-    "C:\\Users\\FelixWorseck\\.nuget\\packages\\vl.core\\2025.7.0\\vl.core.2025.7.0.nupkg.sha512"
+    "C:\\Users\\FelixWorseck\\.nuget\\packages\\vl.core\\2025.7.0-sbb-0011-gbdeb3a62a5\\vl.core.2025.7.0-sbb-0011-gbdeb3a62a5.nupkg.sha512"
   ],
   "logs": []
 }

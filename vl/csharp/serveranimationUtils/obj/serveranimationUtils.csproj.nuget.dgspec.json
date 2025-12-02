@@ -53,7 +53,7 @@
           "dependencies": {
             "VL.Core": {
               "target": "Package",
-              "version": "[2025.7.0, )"
+              "version": "[2025.7.0-sbb-0011-gbdeb3a62a5, )"
             }
           },
           "imports": [

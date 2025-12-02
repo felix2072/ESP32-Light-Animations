@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("serveranimationUtils")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c60dc6dea7b4f0766103fd6a4a94daecc2dfa2a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efb6fa81499e5697b32ecee190670a28cfd9f82e")]
 [assembly: System.Reflection.AssemblyProductAttribute("serveranimationUtils")]
 [assembly: System.Reflection.AssemblyTitleAttribute("serveranimationUtils")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
