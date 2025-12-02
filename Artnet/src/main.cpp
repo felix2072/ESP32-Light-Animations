@@ -3,13 +3,15 @@ This example will receive multiple universes via Art-Net and control a strip of
 WS2812 LEDs via the FastLED library: https://github.com/FastLED/FastLED
 This example may be copied under the terms of the MIT license, see the LICENSE file for details
 */
+#include <WiFi.h>
+#include <WiFIAP.h>
 #include <ArtnetWifi.h>
 #include <Arduino.h>
 #include <FastLED.h>
 
 // Wifi settings
-const char* ssid = "mobelebobele"; // CHANGE FOR YOUR SETUP
-const char* password = "R?J#4?4yNdmVgUiA=A"; // CHANGE FOR YOUR SETUP
+const char* ssid     = "LED";
+const char* password = "serverWALL";
 
 // LED settings
 const int numLeds = 170; // CHANGE FOR YOUR SETUP
@@ -28,43 +30,15 @@ bool sendFrame = 1;
 
 
 // connect to wifi – returns true if successful or false if not
-bool ConnectWifi(void)
+bool initWifi(void)
 {
-  bool state = true;
-  int i = 0;
-
-  WiFi.begin(ssid, password);
-  Serial.println("");
-  Serial.println("Connecting to WiFi");
-
-  // Wait for connection
-  Serial.print("Connecting");
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    delay(500);
-    Serial.print(".");
-    if (i > 20)
-    {
-      state = false;
-      break;
-    }
-    i++;
+  if (!WiFi.softAP(ssid, password)) {
+    log_e("Soft AP creation failed.");
+    while (1);
   }
-  if (state)
-  {
-    Serial.println("");
-    Serial.print("Connected to ");
-    Serial.println(ssid);
-    Serial.print("IP address: ");
-    Serial.println(WiFi.localIP());
-  }
-  else
-  {
-    Serial.println("");
-    Serial.println("Connection failed.");
-  }
-
-  return state;
+  IPAddress myIP = WiFi.softAPIP();
+  Serial.print("AP IP address: ");
+  Serial.println(myIP);
 }
 
 void initTest()
@@ -148,7 +122,15 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 void setup()
 {
   Serial.begin(115200);
-  ConnectWifi();
+  
+  if (!WiFi.softAP(ssid, password)) {
+    log_e("Soft AP creation failed.");
+    while (1);
+  }
+  IPAddress myIP = WiFi.softAPIP();
+  Serial.print("AP IP address: ");
+  Serial.println(myIP);
+
   artnet.begin();
   FastLED.addLeds<WS2812, dataPin, GRB>(leds, numLeds);
   initTest();
