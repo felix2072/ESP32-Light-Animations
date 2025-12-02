@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" xmlns:r="reflection" Id="TalpwaMq10nQdnGKsu4C8u" LanguageVersion="2025.7.0" Version="0.128">
+  <NugetDependency Id="Fb15mhNE0H3LUYHunUl3sK" Location="VL.CoreLib" Version="2025.7.0" />
+  <Patch Id="A7i7fvKZmGLP6nV58OGngB">
+    <Canvas Id="A1FaiGeOrWSL0ZAywoICH8" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="JD74ZoZkLvOOf3QAgkMXmF">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <CategoryReference Kind="Category" Name="Primitive" />
+      </p:NodeReference>
+      <Patch Id="IjLxk98t52TNfBkdVcMplf">
+        <Canvas Id="GX0gFbn4wcqLOiU8UqqqS2" CanvasType="Group">
+          <Node Bounds="621,310,220,19" Id="C5LbkSMazugLyQlKxE7f6v">
+            <p:NodeReference LastCategoryFullName="Main" LastDependency="serveranimationUtils.csproj">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="Category" Name="Main" />
+              <Choice Kind="ProcessAppFlag" Name="LEDController" />
+            </p:NodeReference>
+            <Pin Id="LA7dxMpmbFFQLOUZEyznpt" Name="InitMapping" Kind="InputPin" DefaultValue="True" />
+            <Pin Id="Kccgt8Qw0l6O9tSfRb8Vgn" Name="Index" Kind="InputPin" />
+            <Pin Id="JcSwLJ9fZJ9PhIChuMOub7" Name="R" Kind="InputPin" DefaultValue="40" />
+            <Pin Id="JzeXMUEtLJVPRhYbEeZ1XK" Name="G" Kind="InputPin" DefaultValue="0" />
+            <Pin Id="Eb8et8hgG7PNdCLpOI3cmp" Name="B" Kind="InputPin" DefaultValue="0" />
+            <Pin Id="Q0PsWbac6KVN0pxdOGMAzs" Name="Pos" Kind="InputPin" />
+            <Pin Id="HSB1jfZtyQcPUU4EAptl35" Name="UpdateRainbowColor" Kind="InputPin" DefaultValue="False" />
+            <Pin Id="SElZyKGg9qINlUqSchCsIH" Name="Mode" Kind="InputPin" DefaultValue="1" />
+            <Pin Id="GwhtXYjQQMvMrqyCQatubX" Name="Noise" Kind="InputPin" />
+            <Pin Id="LSXs2nLDJYbL4SkcD2iNXa" Name="Result" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="336,210,120,26" Id="OCvmHmHgiaAP8G0Uqj9r0l">
+            <p:NodeReference LastCategoryFullName="Main.LEDController" LastDependency="serveranimationUtils.csproj">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="UpdateRainbowColor" />
+            </p:NodeReference>
+            <Pin Id="ClgxMY6Dmn3LriEv1hINCE" Name="Input" Kind="StateInputPin" />
+            <Pin Id="IowHAKIspFKLnJsUfcPUP9" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Node Bounds="336,270,160,26" Id="O8uQ6JeFm8VPKQBzDkMXWk">
+            <p:NodeReference LastCategoryFullName="Main.LEDController" LastDependency="serveranimationUtils.csproj">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="UpdateNoiseColor" />
+            </p:NodeReference>
+            <Pin Id="Hq09BFEaMCRPsCjBIvHtk9" Name="Input" Kind="StateInputPin" />
+            <Pin Id="UeyUBnwhKodLzBIMorzG4N" Name="Mode" Kind="InputPin" DefaultValue="1" />
+            <Pin Id="MVDUMHWMPMGQT5cE0uWeP1" Name="Noise" Kind="InputPin" />
+            <Pin Id="IpVEELqwiMQPS901v5nIjo" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Node Bounds="336,330,180,26" Id="GhpKTILu9qjN7wVR4vlsIY">
+            <p:NodeReference LastCategoryFullName="Main.LEDController" LastDependency="serveranimationUtils.csproj">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="ServerAnimationUpdate" />
+            </p:NodeReference>
+            <Pin Id="RyaYqW6t33dNpzwHoXXZvZ" Name="Input" Kind="StateInputPin" />
+            <Pin Id="Dumm89sX65rOyjpoFeKhP4" Name="Mode" Kind="InputPin" DefaultValue="0" />
+            <Pin Id="DqKTepfenTuNk5egUqMZOH" Name="Noise" Kind="InputPin" />
+            <Pin Id="Dwmj8GLGFtLOEADfbti9u5" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Node Bounds="336,390,140,26" Id="NIPKhUm2YvWPzt7TTUixQU">
+            <p:NodeReference LastCategoryFullName="Main.LEDController" LastDependency="serveranimationUtils.csproj">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="SetLEDColor" />
+            </p:NodeReference>
+            <Pin Id="QmJ3K5YcjZpNxCJQtrH82D" Name="Input" Kind="StateInputPin" />
+            <Pin Id="NkitIiz0IiVPFVVMBeqMv8" Name="R" Kind="InputPin" DefaultValue="0" />
+            <Pin Id="RiUBUmO99S6OLC6evEFdwh" Name="G" Kind="InputPin" DefaultValue="0" />
+            <Pin Id="IcFvNW2jkJ6LBSef8gGU8s" Name="B" Kind="InputPin" DefaultValue="0" />
+            <Pin Id="DxvIl0JYqplOkApTTpppIu" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Node Bounds="336,450,100,26" Id="GwCBp9arjutODna1CUvmBW">
+            <p:NodeReference LastCategoryFullName="Main.LEDController" LastDependency="serveranimationUtils.csproj">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="LedBuffer" />
+            </p:NodeReference>
+            <Pin Id="U5gvFxepeKyLVMFQomiPuI" Name="Input" Kind="StateInputPin" />
+            <Pin Id="A0ofmlJppYtLT2cwKT2OB9" Name="Output" Kind="StateOutputPin" />
+            <Pin Id="Ifohb6IzYILPE8kOMgO8Xh" Name="Led Buffer" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="336,120,66,26" Id="OXLn7z3IpW6P65xtruVxFT">
+            <p:NodeReference LastCategoryFullName="Main.LEDController" LastDependency="serveranimationUtils.csproj">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <FullNameCategoryReference ID="Main.LEDController" />
+              <Choice Kind="OperationCallFlag" Name="Create" />
+            </p:NodeReference>
+            <Pin Id="P26cknxaluoMigFb7cymrA" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Pad Id="RzmTmJpZu9cOP6xK6Ifuvv" SlotId="GIoP1H9lHrzMB5jOnq4big" Bounds="338,180" />
+          <Node Bounds="451,508,162,162" Id="DmID47vjJyWLgmqjzTGiSB">
+            <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
+              <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+              <CategoryReference Kind="Category" Name="Primitive" />
+              <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
+            </p:NodeReference>
+            <Pin Id="G0KKepbK4TRLHqpa7BnOzc" Name="Break" Kind="OutputPin" />
+            <Patch Id="F0Ozyq5ZeJfQbIadLGB7Pl" ManuallySortedPins="true">
+              <Patch Id="UZzwOm9gUJyPB1ZUgTV1iT" Name="Create" ManuallySortedPins="true" />
+              <Patch Id="BDcrzaSkUD4NDebP2OlAm8" Name="Update" ManuallySortedPins="true" />
+              <Patch Id="Js80ElCH0NFMlHxmiKsYI6" Name="Dispose" ManuallySortedPins="true" />
+              <Node Bounds="463,531,90,26" Id="VpVPw76PBtSLUbi1xcChuJ">
+                <p:NodeReference LastCategoryFullName="Primitive.ValueTuple (3 Items)" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <FullNameCategoryReference ID="Primitive.ValueTuple (3 Items)" />
+                  <Choice Kind="OperationCallFlag" Name="Item1" />
+                </p:NodeReference>
+                <Pin Id="Jx0abmMdyCtP8mRQa3Cm91" Name="Input" Kind="StateInputPin" />
+                <Pin Id="Trw5vxMj58YOBc3dAsMDw1" Name="Item 1" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="491,560,90,26" Id="PHbG9xXgCK9PSvsFilnudb">
+                <p:NodeReference LastCategoryFullName="Primitive.ValueTuple (3 Items)" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <FullNameCategoryReference ID="Primitive.ValueTuple (3 Items)" />
+                  <Choice Kind="OperationCallFlag" Name="Item2" />
+                </p:NodeReference>
+                <Pin Id="NCAucdfATjxNGMVnAkdCkR" Name="Input" Kind="StateInputPin" />
+                <Pin Id="M534992PJntPFAoWTzJxxk" Name="Item 2" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="511,590,90,26" Id="MzRGOn8ZSN8LZ7v9Kl3mC6">
+                <p:NodeReference LastCategoryFullName="Primitive.ValueTuple (3 Items)" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <FullNameCategoryReference ID="Primitive.ValueTuple (3 Items)" />
+                  <Choice Kind="OperationCallFlag" Name="Item3" />
+                </p:NodeReference>
+                <Pin Id="RD4Ledlqai9M8dfVxSI3Na" Name="Input" Kind="StateInputPin" />
+                <Pin Id="TfZgVnt4fqvMMNcxurcDh4" Name="Item 3" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="471,620,45,19" Id="CPGKTKWwMC2MDtLcvx9OY1">
+                <p:NodeReference LastCategoryFullName="Collections.Spread" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="4026531840" Name="Spread" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationCallFlag" Name="Cons" />
+                </p:NodeReference>
+                <Pin Id="CWh2u7MV3NJPmLvgX4bj9w" Name="Input" Kind="InputPin" />
+                <Pin Id="JfTUnoe9jpcN9s9EKc0mhK" Name="Input 2" Kind="InputPin" />
+                <Pin Id="QliOi4ltcWdMJOdmC30pA3" Name="Result" Kind="OutputPin" />
+                <Pin Id="Dmmw8hDcuSFOP723nzB6CR" Name="Input 3" Kind="InputPin" />
+              </Node>
+            </Patch>
+            <ControlPoint Id="Gn4D11tPfqvLGWPIEy3v3s" Bounds="465,514" Alignment="Top" />
+            <ControlPoint Id="Cce2CGkFjH3NujU5bIiBr2" Bounds="465,664" Alignment="Bottom" />
+          </Node>
+          <Pad Id="L3k9SKmcFk5NmYhZ6GGvQi" Comment="" Bounds="441,700,152,192" ShowValueBox="true" isIOBox="true" />
+        </Canvas>
+        <Patch Id="KikxdPNfi15LqzTImNNN7i" Name="Create" ParticipatingElements="On1rfWdkzVzNKldW2HejYE" />
+        <Patch Id="RiApaqTno5gPKsrL59ok0Z" Name="Update" />
+        <ProcessDefinition Id="MVl74RqZjzvQKDBtS7b1dl">
+          <Fragment Id="CsmZpHlZr6pQFeSIcbSLDZ" Patch="KikxdPNfi15LqzTImNNN7i" Enabled="true" />
+          <Fragment Id="JwnN0kztbpkMVjuhrodIpJ" Patch="RiApaqTno5gPKsrL59ok0Z" Enabled="true" />
+        </ProcessDefinition>
+        <Link Id="AM6oyVaHD5nLGKLKWcWwBf" Ids="IowHAKIspFKLnJsUfcPUP9,Hq09BFEaMCRPsCjBIvHtk9" />
+        <Link Id="MHa1z5tFp1MNE5GiUCmOby" Ids="IpVEELqwiMQPS901v5nIjo,RyaYqW6t33dNpzwHoXXZvZ" />
+        <Link Id="JypvjAouWr7MyMlTa4H6RH" Ids="Dwmj8GLGFtLOEADfbti9u5,QmJ3K5YcjZpNxCJQtrH82D" />
+        <Link Id="KCAdbPeCEtlONxm3eJAsUi" Ids="DxvIl0JYqplOkApTTpppIu,U5gvFxepeKyLVMFQomiPuI" />
+        <Slot Id="GIoP1H9lHrzMB5jOnq4big" Name="LEDs" />
+        <Link Id="On1rfWdkzVzNKldW2HejYE" Ids="P26cknxaluoMigFb7cymrA,RzmTmJpZu9cOP6xK6Ifuvv" />
+        <Link Id="J2fVYVGcI0sOKRFrLnWtDe" Ids="RzmTmJpZu9cOP6xK6Ifuvv,ClgxMY6Dmn3LriEv1hINCE" />
+        <Link Id="GUseMbSq4IMQXZih5u9Jg8" Ids="Ifohb6IzYILPE8kOMgO8Xh,Gn4D11tPfqvLGWPIEy3v3s" />
+        <Link Id="ROQ2oZeaAFiOBuTx4mvSqN" Ids="Gn4D11tPfqvLGWPIEy3v3s,Jx0abmMdyCtP8mRQa3Cm91" />
+        <Link Id="FNH97D5EwRbLxLwfU0drmD" Ids="Gn4D11tPfqvLGWPIEy3v3s,NCAucdfATjxNGMVnAkdCkR" />
+        <Link Id="IYQY4eiP7GEPZJEhVUEZhk" Ids="Gn4D11tPfqvLGWPIEy3v3s,RD4Ledlqai9M8dfVxSI3Na" />
+        <Link Id="AG1pBHUzOjRPsN5nmWRQ6t" Ids="Cce2CGkFjH3NujU5bIiBr2,L3k9SKmcFk5NmYhZ6GGvQi" />
+        <Link Id="IqcFnmmrG8YPxl1cRLSDG3" Ids="Trw5vxMj58YOBc3dAsMDw1,CWh2u7MV3NJPmLvgX4bj9w" />
+        <Link Id="DCKY8TLtIVpMMsIGGy6NRx" Ids="M534992PJntPFAoWTzJxxk,JfTUnoe9jpcN9s9EKc0mhK" />
+        <Link Id="Pk0iKOJFbsPLQpikleKItO" Ids="TfZgVnt4fqvMMNcxurcDh4,Dmmw8hDcuSFOP723nzB6CR" />
+        <Link Id="CCw4FMZi5EzMAyPKwi4VJ5" Ids="QliOi4ltcWdMJOdmC30pA3,Cce2CGkFjH3NujU5bIiBr2" />
+      </Patch>
+    </Node>
+  </Patch>
+  <ProjectDependency Id="L4fB0smMJQ9PLCJ6uxgbfa" Location="./csharp/serveranimationUtils/serveranimationUtils.csproj" />
+</Document>

@@ -1,0 +1,15 @@
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\bin\Debug\net8.0\serveranimationUtils.deps.json
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\bin\Debug\net8.0\serveranimationUtils.dll
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\bin\Debug\net8.0\serveranimationUtils.pdb
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\bin\Debug\net8.0\serveranimationUtils.xml
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\obj\Debug\net8.0\serveranimationUtils.csproj.AssemblyReference.cache
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\obj\Debug\net8.0\serveranimationUtils.GeneratedMSBuildEditorConfig.editorconfig
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\obj\Debug\net8.0\serveranimationUtils.AssemblyInfoInputs.cache
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\obj\Debug\net8.0\serveranimationUtils.AssemblyInfo.cs
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\obj\Debug\net8.0\serveranimationUtils.csproj.CoreCompileInputs.cache
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\obj\Debug\net8.0\serveranimationUtils.sourcelink.json
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\obj\Debug\net8.0\serveranimationUtils.dll
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\obj\Debug\net8.0\refint\serveranimationUtils.dll
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\obj\Debug\net8.0\serveranimationUtils.xml
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\obj\Debug\net8.0\serveranimationUtils.pdb
+D:\work\ESP32-Light-Animations\vl\csharp\serveranimationUtils\obj\Debug\net8.0\ref\serveranimationUtils.dll
