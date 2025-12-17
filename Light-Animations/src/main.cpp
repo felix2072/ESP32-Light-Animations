@@ -10,6 +10,10 @@ int neoPixelInterval = 5000;
 int commandCounter = 1;
 char command = '1';
 
+int potValue1 = 0;
+int potValue2 = 0;
+int potpin1 = 7;
+
 void setup()
 {
   // Init Serial Monitor
@@ -29,13 +33,19 @@ void setup()
 
 void loop()
 {
+  potValue1 = analogRead(potpin1);
+  potValue1 = potValue1/16;
+  Serial.println(potValue1);
+
+ /*  potValue2 = analogRead(potpin2);
+  Serial.println(potValue2/16); */
   
   if(neoPixelTimer.read() > neoPixelInterval){
     neoPixelTimer.stop();
     command = char(48 + commandCounter);
     Serial.print("Timer command: ");
     Serial.println(command);
-    if(commandCounter == 6){
+    if(commandCounter == 2){
       commandCounter = 1;
     }else{
       commandCounter++;
@@ -49,18 +59,18 @@ void loop()
     Serial.println(command);
   }
 
-  switch (command) {
+  switch ('2') {
     case '1':
-      light.updateRainbowColor();
+      light.updateRainbowColor(potValue1);
       break;
     case '2':
-      light.updateNoiseColor(0);
+      light.updateNoiseColor(0,potValue1);
       break;
     case '3':
-      light.updateNoiseColor(1);
+      light.updateNoiseColor(1,potValue1);
       break;
     case '4':
-      light.updateNoiseColor(2);
+      light.updateNoiseColor(2,potValue1);
       break;
     case '5':
       light.serverAnimationUpdate(0);

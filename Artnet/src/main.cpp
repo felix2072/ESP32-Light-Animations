@@ -16,7 +16,7 @@ const char* password = "serverWALL";
 // LED settings
 const int numLeds = 170; // CHANGE FOR YOUR SETUP
 const int numberOfChannels = numLeds * 3; // Total number of channels you want to receive (1 led = 3 channels)
-const byte dataPin = 32;
+const byte dataPin = 17;
 CRGB leds[numLeds];
 
 // Art-Net settings
@@ -70,6 +70,10 @@ void initTest()
 
 void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* data)
 {
+  Serial.print("universe: ");
+  Serial.print(universe);
+  Serial.print(" length: ");
+  Serial.println(length);
   sendFrame = 1;
   // set brightness of the whole strip
   if (universe == 15)
