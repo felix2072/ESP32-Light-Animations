@@ -1,3 +1,6 @@
+#include <OThreadCLI.h>
+#include <OThreadCLI_Util.h>
+
 /*
 This example will receive multiple universes via Art-Net and control a strip of
 WS2812 LEDs via the FastLED library: https://github.com/FastLED/FastLED
