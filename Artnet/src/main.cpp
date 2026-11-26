@@ -16,8 +16,8 @@ const char* password = "R?J#4?4yNdmVgUiA=A";
 // LED settings
 const int numLeds = 40; // CHANGE FOR YOUR SETUP
 
-const byte dataPin_A = 36;
-const byte dataPin_B = 37;
+const byte dataPin_A = 8;
+const byte dataPin_B = 9;
 CRGB leds_A[numLeds];
 CRGB leds_B[numLeds];
 CRGB* targetLeds = nullptr;
